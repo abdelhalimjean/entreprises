@@ -1,0 +1,9 @@
+<div class="flex gap-4 rounded-lg">
+  @for (social of sortedSocials(); track social) {
+    <app-social-link
+      [link]="social.value"
+      [icon]="socialMediaIconsMap.get(social.platform)"
+      [className]="socialMediaIconsColorMap.get(social.platform)"
+    />
+  }
+</div>

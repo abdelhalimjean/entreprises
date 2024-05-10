@@ -1,27 +1,57 @@
-# Societes
+<img src="src/assets/logo-full.png" alt="Répertoire d'Entreprises Mauritaniennes">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Ce projet vise à créer une plateforme en ligne complète et collaborative recensant les entreprises mauritaniennes 🇲🇷
 
-## Development server
+L'objectif est de fournir une ressource centralisée pour les chercheurs d'emploi 👨‍💼 et les étudiants à la recherche de stages 👩‍🎓 tout en permettant aux entreprises d'accroître leur visibilité ✨
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Soyez un acteur du changement ! 💌
 
-## Code scaffolding
+En tant qu'employé actuel ou ancien, ou encore en tant que stagiaire, vous avez la possibilité de contribuer à l'enrichissement de ce répertoire en partageant votre expérience au sein d'une entreprise mauritanienne. Vos précieuses informations permettront de compléter les fiches d'entreprise et seront consultables par tous les utilisateurs de la plateforme. N'hésitez pas à partager votre vécu et à aider la communauté à mieux connaître le paysage entrepreneurial mauritanien !
+## Technologies utilisées 🛠️
+<img src="src/assets/angular-logo.png" alt="Angular logo">
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ce projet utilise le framework Angular (https://angular.dev/) pour le développement front-end.
 
-## Build
+D'autres technologies peuvent être envisagées pour la partie back-end (TBD)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Installation et prérequis 🧰
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prérequis
 
-## Running end-to-end tests
+* Node.js et npm installés sur votre machine (https://nodejs.org/). Vous pouvez vérifier leur présence en exécutant les commandes node -v et npm -v dans votre terminal.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation Angular
+* Ouvrez votre terminal et exécutez la commande suivante pour installer Angular CLI globalement :
+`npm install -g @angular/cli`
 
-## Further help
+## Execution du projet en local 💻
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Naviguez vers le répertoire du projet : `cd entreprises`
+* Démarrez le serveur de développement : `ng serve`
+
+
+## Contribution 🙌
+Nous encourageons vivement la participation de la communauté à l'enrichissement de ce répertoire.
+
+## Avertissement 📢
+
+Les informations fournies sur les entreprises sont soumises par la communauté et n'engagent pas la responsabilité des contributeurs ou des administrateurs du site. Nous invitons les utilisateurs à vérifier les informations auprès des entreprises directement.
+
+Si vous remarquez une information inexacte sur votre entreprise ou souhaitez que les informations la concernant soient retirées, veuillez nous contacter. Nous nous efforcerons de rectifier ou de supprimer les informations dans les meilleurs délais.
+
+## Démarrer ⏯️
+
+Vous êtes convaincu par ce projet ? Consultez ce dépôt GitHub pour le code source et les instructions de contribution.
+
+N'hésitez pas non plus à proposer des améliorations et des suggestions pour faire de ce répertoire d'entreprises mauritaniennes une ressource incontournable !
+
+
+## Contact 📲
+
+Pour rester connecté et interagir avec la communauté, nous vous invitons à rejoindre nos canaux de discussion :
+
+#### Serveur Discord : https://discord.gg/wsbsd7e8
+#### Groupe WhatsApp : https://chat.whatsapp.com/Ic6bnLZJHqZARB8RG6kalk
+
+Nous espérons vous voir bientôt sur nos canaux de discussion !

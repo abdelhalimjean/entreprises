@@ -1,0 +1,64 @@
+<div class="mx-auto my-12 w-1/2 rounded-xl bg-white p-4 text-slate-900">
+  @if (entreprise().logo) {
+    <img
+      src="{{ entreprise().logo }}"
+      alt="Logo {{ entreprise().name }}"
+      class="h-12"
+      loading="lazy"
+    />
+  }
+  <div class="text-byte-400 text-lg font-bold">
+    {{ entreprise().name }}
+  </div>
+
+  <div class="flex gap-10">
+    @if (entreprise().adresse.phoneNumber1) {
+      <span class="inline-block py-1 text-sm text-blue-500">
+        <ng-icon name="bootstrapPhone" class="align-middle text-base" />
+        {{ entreprise().adresse.phoneNumber1 }}
+      </span>
+    }
+    @if (entreprise().adresse.website) {
+      <a
+        class="inline-block py-1 text-sm text-blue-500"
+        href="{{ entreprise().adresse.website }}"
+      >
+        <ng-icon name="bootstrapGlobe" class="align-middle text-base" />
+        {{ entreprise().adresse.website }}
+      </a>
+    }
+  </div>
+
+  <div>
+    {{ entreprise().shortDescription }}
+  </div>
+  <div class="text-sm text-slate-600">
+    {{ entreprise().longDescription }}
+  </div>
+
+  @if (entreprise().sectors.length) {
+    <div class="my-2 text-sm">
+      Secteurs :
+      @for (sector of entreprise().sectors; track sector) {
+        <div
+          class="m-1 inline-block cursor-pointer rounded-lg border border-solid border-amber-500 px-1 text-amber-500"
+        >
+          {{ sector }}
+        </div>
+      }
+    </div>
+  }
+  @if (entreprise().technologiesUsed.length) {
+    <div class="my-2 text-sm">
+      Technologies :
+      @for (technology of entreprise().technologiesUsed; track technology) {
+        <div
+          class="border-byte-400 text-byte-400 m-1 inline-block cursor-pointer rounded-lg border border-solid px-1"
+        >
+          {{ technology }}
+        </div>
+      }
+    </div>
+  }
+  <app-socials [socials]="entreprise().adresse.socials" />
+</div>
