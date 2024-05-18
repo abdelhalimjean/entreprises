@@ -16,7 +16,6 @@ import {
   standalone: true,
   imports: [NgOptimizedImage, NgIcon, SocialLinkComponent, SocialsComponent],
   templateUrl: './entreprise-card.component.html',
-  styleUrl: './entreprise-card.component.scss',
   providers: [
     provideIcons({
       bootstrapArrowRightShort,
