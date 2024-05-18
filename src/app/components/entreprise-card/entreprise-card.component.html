@@ -1,4 +1,4 @@
-<div class="mx-auto my-12 w-1/2 rounded-xl bg-white p-4 text-slate-900">
+<div class="mx-auto my-12 md:w-2/3 rounded-xl bg-white p-4 text-slate-900">
   @if (entreprise().logo) {
     <img
       src="{{ entreprise().logo }}"
@@ -11,7 +11,7 @@
     {{ entreprise().name }}
   </div>
 
-  <div class="flex gap-10">
+  <div class="sm:flex-row sm:gap-2 md:gap-10 md:flex">
     @if (entreprise().adresse.phoneNumber1) {
       <span class="inline-block py-1 text-sm text-blue-500">
         <ng-icon name="bootstrapPhone" class="align-middle text-base" />
