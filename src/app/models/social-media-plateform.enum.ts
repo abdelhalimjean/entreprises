@@ -1,14 +1,14 @@
 export enum SocialMediaPlatform {
-  Linkedin,
-  Facebook,
-  Instagram,
-  WhatsApp,
-  Youtube,
-  Twitter,
-  Github,
-  Gitlab,
-  Telegram,
-  Discord,
+  Linkedin = 'Linkedin',
+  Facebook = 'Facebook',
+  Instagram = 'Instagram',
+  WhatsApp = 'WhatsApp',
+  Youtube = 'Youtube',
+  Twitter = 'Twitter',
+  Github = 'Github',
+  Gitlab = 'Gitlab',
+  Telegram = 'Telegram',
+  Discord = 'Discord',
 }
 
 export const socialMediaIconsMap: Map<SocialMediaPlatform, string> = new Map<
