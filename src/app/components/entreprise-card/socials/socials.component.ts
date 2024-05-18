@@ -33,6 +33,7 @@ import {
   standalone: true,
   imports: [SocialLinkComponent],
   templateUrl: './socials.component.html',
+  styleUrls: ['./socials.component.scss'],
   providers: [
     provideIcons({
       bootstrapLinkedin,

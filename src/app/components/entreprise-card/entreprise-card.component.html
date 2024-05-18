@@ -11,23 +11,21 @@
     {{ entreprise().name }}
   </div>
 
-  <div class="flex gap-10">
+  <div class="flex flex-wrap gap-4 mb-4">
     @if (entreprise().adresse.phoneNumber1) {
-      <span class="inline-block py-1 text-sm text-blue-500">
-        <ng-icon name="bootstrapPhone" class="align-middle text-base" />
+      <span class="inline-flex items-center py-1 text-sm text-blue-500">
+        <ng-icon name="bootstrapPhone" class="align-middle text-base mr-2"></ng-icon>
         {{ entreprise().adresse.phoneNumber1 }}
       </span>
     }
     @if (entreprise().adresse.website) {
-      <a
-        class="inline-block py-1 text-sm text-blue-500"
-        href="{{ entreprise().adresse.website }}"
-      >
-        <ng-icon name="bootstrapGlobe" class="align-middle text-base" />
+      <a class="inline-flex items-center py-1 text-sm text-blue-500" href="{{ entreprise().adresse.website }}">
+        <ng-icon name="bootstrapGlobe" class="align-middle text-base mr-2"></ng-icon>
         {{ entreprise().adresse.website }}
       </a>
     }
   </div>
+  
 
   <div>
     {{ entreprise().shortDescription }}
