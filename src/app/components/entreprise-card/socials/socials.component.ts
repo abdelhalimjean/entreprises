@@ -1,26 +1,18 @@
-import {
-  Component,
-  computed,
-  Input,
-  input,
-  InputSignal,
-  InputSignalWithTransform,
-  Signal,
-} from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { ISocial } from '../../../models/entreprise.model';
 import { SocialLinkComponent } from '../social-link/social-link.component';
 import { provideIcons } from '@ng-icons/core';
 import {
-  bootstrapLinkedin,
-  bootstrapFacebook,
-  bootstrapTwitterX,
-  bootstrapWhatsapp,
-  bootstrapInstagram,
-  bootstrapYoutube,
-  bootstrapTelegram,
   bootstrapDiscord,
+  bootstrapFacebook,
   bootstrapGithub,
   bootstrapGitlab,
+  bootstrapInstagram,
+  bootstrapLinkedin,
+  bootstrapTelegram,
+  bootstrapTwitterX,
+  bootstrapWhatsapp,
+  bootstrapYoutube,
 } from '@ng-icons/bootstrap-icons';
 import {
   socialMediaIconsColorMap,
@@ -51,11 +43,6 @@ import {
 export class SocialsComponent {
   socials: InputSignal<ISocial[]> = input.required();
 
-  sortedSocials: Signal<ISocial[]> = computed(() =>
-    this.socials().toSorted(
-      (s1: ISocial, s2: ISocial) => s1.platform - s2.platform
-    )
-  );
   socialMediaIconsMap: Map<SocialMediaPlatform, string> = socialMediaIconsMap;
   socialMediaIconsColorMap: Map<SocialMediaPlatform, string> =
     socialMediaIconsColorMap;
