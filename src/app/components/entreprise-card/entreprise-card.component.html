@@ -27,6 +27,11 @@
         {{ entreprise().adresse.website }}
       </a>
     }
+    @if(entreprise().city){
+      <span class="inline-block py-1 text-sm text-blue-500">
+        {{ entreprise().city }}
+      </span>
+    }
   </div>
 
   <div>

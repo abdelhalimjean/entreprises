@@ -9,7 +9,7 @@
     Notre répertoire d'entreprises, alimenté par la communauté, est votre allié
     idéal.
   </div>
-
+<div >
   <div class="fade-in search">
     <ng-icon class="search-icon" name="bootstrapSearch" />
     <input
@@ -18,6 +18,14 @@
       placeholder="Chercher des entreprises..."
       [(ngModel)]="keyword"
     />
+  </div>
+    
+    <select [(ngModel)]="keyword" title="villes" class='select'>
+        <option value="" class='select'>Toutes les villes</option>
+        <option value="Nouakchott" class="option">Nouakchott</option>
+        <option value="Nouadhibou">Nouadhibou</option>
+        
+      </select>
   </div>
 </div>
 

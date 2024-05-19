@@ -27,16 +27,22 @@ export class HeroComponent {
   filteredEntreprises: Signal<IEntreprise[]> = computed(() =>
     this.keyword()
       ? this.#allEntreprises.filter(
-          (entreprise: IEntreprise) =>
-            entreprise.name
-              .toLowerCase()
-              .includes(this.keyword().toLowerCase()) ||
-            entreprise.shortDescription
-              .toLowerCase()
-              .includes(this.keyword().toLowerCase())
-        )
+        (entreprise: IEntreprise) =>
+          entreprise.name
+            .toLowerCase()
+            .includes(this.keyword().toLowerCase()) ||
+          entreprise.shortDescription
+            .toLowerCase()
+            .includes(this.keyword().toLowerCase()) ||
+          entreprise.city
+            .toLowerCase()
+            .includes(this.keyword().toLowerCase())
+          
+      )
       : this.#allEntreprises
   );
+ 
+  
   getFakeEntrepriseData(): IEntreprise {
     return {
       name: 'FakeCorp',
@@ -103,6 +109,7 @@ export class HeroComponent {
         'AWS',
       ],
       logo: 'https://img.logoipsum.com/331.svg',
+      city: 'Nouakchott',
     };
   }
 }

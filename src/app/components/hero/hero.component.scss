@@ -51,7 +51,7 @@
   background-color: transparent;
   border: none;
 
-  &::placeholder {
+  &::placeholder, .option, .select {
     color: rgba(255, 255, 255, 0.5);
   }
 }
@@ -59,4 +59,13 @@
 .search-icon {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.8);
+}
+.select{
+height: calc(100% - 2px);
+  outline: none;
+   background: transparent;
+  border: none;
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.8);
+
 }
