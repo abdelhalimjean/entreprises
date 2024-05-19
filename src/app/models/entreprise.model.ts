@@ -1,8 +1,5 @@
 import { SocialMediaPlatform } from './social-media-plateform.enum';
-import { City } from './cities.enum'; 
-
-
-
+import { City } from './cities.enum';
 
 export interface IEntreprise {
   name: string;
@@ -13,7 +10,6 @@ export interface IEntreprise {
   technologiesUsed?: string[];
   logo?: string;
   city?: string;
-  
 }
 
 export interface IAdresse {
@@ -31,7 +27,6 @@ export interface ISocial {
 }
 
 export interface ICity {
-    name: City;
-    value: string;
+  name: City;
+  value: string;
 }
-
