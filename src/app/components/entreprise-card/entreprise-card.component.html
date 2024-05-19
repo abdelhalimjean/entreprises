@@ -13,10 +13,13 @@
 
   <div class="sm:flex-row sm:gap-2 md:flex md:gap-10">
     @if (entreprise().adresse.phoneNumber1) {
-      <div class="inline-block py-1 text-sm text-blue-500">
+      <a
+        class="inline-block py-1 text-sm text-blue-500"
+        href="tel:{{ entreprise().adresse.phoneNumber1 }}"
+      >
         <ng-icon name="bootstrapPhone" class="align-middle text-base" />
         {{ entreprise().adresse.phoneNumber1 }}
-      </div>
+      </a>
     }
     @if (entreprise().adresse.website) {
       <div>
@@ -31,6 +34,7 @@
     }
     @if (entreprise().city) {
       <span class="inline-block py-1 text-sm text-blue-500">
+        <ng-icon name="bootstrapCursor" class="align-middle text-base" />
         {{ entreprise().city }}
       </span>
     }
