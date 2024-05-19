@@ -24,8 +24,128 @@ import { City } from '../../models/cities.enum';
 export class HeroComponent {
   technology: WritableSignal<string> = signal('');
   #allEntreprises: IEntreprise[] = [
-    this.getFakeEntrepriseData('FakeCorp', City.Nouadhibou),
-    this.getFakeEntrepriseData('ShadyCorp', City.Nouakchott),
+    {
+      name: 'FakeCorp',
+      adresse: {
+        location: 'Your Company Address',
+        phoneNumber1: '+22223456789',
+        website: 'https://www.fakecorp.com',
+        socials: [
+          {
+            platform: SocialMediaPlatform.Linkedin,
+            value: 'https://www.linkedin.com/company/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Facebook,
+            value: 'https://www.facebook.com/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Instagram,
+            value: 'https://www.instagram.com/fakecorptheofficial',
+          },
+          {
+            platform: SocialMediaPlatform.WhatsApp,
+            value: 'https://chat.whatsapp.com/22223456789',
+          },
+          {
+            platform: SocialMediaPlatform.Youtube,
+            value: 'https://www.youtube.com/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Twitter,
+            value: 'https://twitter.com/FakeCorp',
+          },
+          {
+            platform: SocialMediaPlatform.Github,
+            value: 'https://github.com/FakeCorp',
+          },
+          {
+            platform: SocialMediaPlatform.Gitlab,
+            value: 'https://gitlab.com/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Telegram,
+            value: 'https://t.me/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Discord,
+            value: 'https://discord.gg/fakecorp',
+          },
+        ],
+      },
+      shortDescription: "FakeCorp : Connecter le monde, façonner l'avenir",
+      longDescription:
+        "A la pointe de l'innovation et d'excellence depuis 1975, Fake Corp. s'impose comme un acteur technologique majeur façonnant l'avenir. IA, logiciels, cloud computing et télécommunications : l'entreprise propose un panel de solutions de pointe pour accompagner les entreprises et les particuliers dans leur transition vers un avenir durable.",
+      sectors: ['Technology', 'AI', 'Software', 'Consulting'],
+      technologiesUsed: [
+        'Python',
+        'Angular',
+        'HTML',
+        'CSS',
+        'Tailwind',
+        'React',
+        'NextJS',
+        'JavaScript',
+        'AWS',
+      ],
+      logo: 'https://img.logoipsum.com/331.svg',
+    },
+    {
+      name: 'FakeCorp',
+      adresse: {
+        location: 'Your Company Address',
+        phoneNumber1: '+22223456789',
+        website: 'https://www.fakecorp.com',
+        socials: [
+          {
+            platform: SocialMediaPlatform.Linkedin,
+            value: 'https://www.linkedin.com/company/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Facebook,
+            value: 'https://www.facebook.com/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Instagram,
+            value: 'https://www.instagram.com/fakecorptheofficial',
+          },
+          {
+            platform: SocialMediaPlatform.WhatsApp,
+            value: 'https://chat.whatsapp.com/22223456789',
+          },
+          {
+            platform: SocialMediaPlatform.Youtube,
+            value: 'https://www.youtube.com/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Twitter,
+            value: 'https://twitter.com/FakeCorp',
+          },
+          {
+            platform: SocialMediaPlatform.Github,
+            value: 'https://github.com/FakeCorp',
+          },
+          {
+            platform: SocialMediaPlatform.Gitlab,
+            value: 'https://gitlab.com/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Telegram,
+            value: 'https://t.me/fakecorp',
+          },
+          {
+            platform: SocialMediaPlatform.Discord,
+            value: 'https://discord.gg/fakecorp',
+          },
+        ],
+      },
+      shortDescription: "FakeCorp : Connecter le monde, façonner l'avenir",
+      longDescription:
+        "A la pointe de l'innovation et d'excellence depuis 1975, Fake Corp. s'impose comme un acteur technologique majeur façonnant l'avenir. IA, logiciels, cloud computing et télécommunications : l'entreprise propose un panel de solutions de pointe pour accompagner les entreprises et les particuliers dans leur transition vers un avenir durable.",
+      sectors: ['Technology', 'AI', 'Software', 'Consulting'],
+      technologiesUsed: ['Azure', 'Flutter', 'HTML'],
+      logo: 'https://img.logoipsum.com/331.svg',
+    },
   ];
   keyword: WritableSignal<string> = signal('');
   city: WritableSignal<string> = signal('');
