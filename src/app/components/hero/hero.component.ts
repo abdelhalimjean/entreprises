@@ -22,6 +22,7 @@ import { City } from '../../models/cities.enum';
   providers: [provideIcons({ bootstrapSearch })],
 })
 export class HeroComponent {
+  technology: WritableSignal<string> = signal('');
   #allEntreprises: IEntreprise[] = [
     this.getFakeEntrepriseData('FakeCorp', City.Nouadhibou),
     this.getFakeEntrepriseData('ShadyCorp', City.Nouakchott),
@@ -41,7 +42,12 @@ export class HeroComponent {
               entreprise.shortDescription
                 .toLowerCase()
                 .includes(this.keyword().toLowerCase())) &&
-            (this.city() == '' || entreprise.city == this.city())
+            (this.city() == '' || entreprise.city == this.city()) &&
+            (entreprise.technologiesUsed || []).some(
+              (tech) =>
+                tech.toLowerCase().includes(this.technology().toLowerCase()) ||
+                this.technology() == ''
+            )
         )
       : this.#allEntreprises
   );

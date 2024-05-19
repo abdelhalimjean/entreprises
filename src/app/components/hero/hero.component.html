@@ -21,7 +21,15 @@
         [(ngModel)]="keyword"
       />
     </div>
-
+    <div class="fade-in search">
+      <ng-icon class="search-icon" name="bootstrapSearch" />
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Chercher par technology..."
+        [(ngModel)]="technology"
+      />
+    </div>
     <select
       [(ngModel)]="city"
       title="villes"
