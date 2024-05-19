@@ -1,4 +1,5 @@
 import { SocialMediaPlatform } from './social-media-plateform.enum';
+import { City } from './cities.enum';
 
 export interface IEntreprise {
   name: string;
@@ -8,6 +9,7 @@ export interface IEntreprise {
   sectors: string[];
   technologiesUsed?: string[];
   logo?: string;
+  city?: string;
 }
 
 export interface IAdresse {
@@ -21,5 +23,10 @@ export interface IAdresse {
 }
 export interface ISocial {
   platform: SocialMediaPlatform;
+  value: string;
+}
+
+export interface ICity {
+  name: City;
   value: string;
 }

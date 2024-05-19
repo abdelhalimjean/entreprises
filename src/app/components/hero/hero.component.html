@@ -1,23 +1,39 @@
 <div class="text-center">
-  <div class="heading mb-4 text-3xl sm:text-5xl font-extrabold drop-shadow-md">
+  <div class="heading mb-4 text-3xl font-extrabold drop-shadow-md sm:text-5xl">
     Construisez votre avenir
-    <div class="text-xl sm:text-3xl">Un répertoire d'entreprises par la communauté</div>
+    <div class="text-xl sm:text-3xl">
+      Un répertoire d'entreprises par la communauté
+    </div>
   </div>
-  <div class="fade-in mb-4 text-base sm:text-lg drop-shadow-md">
+  <div class="fade-in mb-4 text-base drop-shadow-md sm:text-lg">
     Vous cherchez un stage ou un nouvel emploi ?
     <br />
     Notre répertoire d'entreprises, alimenté par la communauté, est votre allié
     idéal.
   </div>
+  <div>
+    <div class="fade-in search">
+      <ng-icon class="search-icon" name="bootstrapSearch" />
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Chercher des entreprises..."
+        [(ngModel)]="keyword"
+      />
+    </div>
 
-  <div class="fade-in search">
-    <ng-icon class="search-icon" name="bootstrapSearch" />
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Chercher des entreprises..."
-      [(ngModel)]="keyword"
-    />
+    <select
+      [(ngModel)]="city"
+      title="villes"
+      class="border-none bg-transparent px-2"
+    >
+      <option value="" class="text-black">Toutes les villes</option>
+      @for (city of cities; track city) {
+        <option value="{{ city }}" class="text-pretty text-black">
+          {{ city }}
+        </option>
+      }
+    </select>
   </div>
 </div>
 

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { IEntreprise } from '../../models/entreprise.model';
 import { EntrepriseCardComponent } from '../entreprise-card/entreprise-card.component';
 import { SocialMediaPlatform } from '../../models/social-media-plateform.enum';
+import { City } from '../../models/cities.enum';
 
 @Component({
   selector: 'app-hero',
@@ -21,25 +22,33 @@ import { SocialMediaPlatform } from '../../models/social-media-plateform.enum';
   providers: [provideIcons({ bootstrapSearch })],
 })
 export class HeroComponent {
-  #allEntreprises: IEntreprise[] = [this.getFakeEntrepriseData()];
+  #allEntreprises: IEntreprise[] = [
+    this.getFakeEntrepriseData('FakeCorp', City.Nouadhibou),
+    this.getFakeEntrepriseData('ShadyCorp', City.Nouakchott),
+  ];
   keyword: WritableSignal<string> = signal('');
+  city: WritableSignal<string> = signal('');
+
+  cities: City[] = Object.keys(City).map((city) => city as City);
 
   filteredEntreprises: Signal<IEntreprise[]> = computed(() =>
-    this.keyword()
+    this.keyword() || this.city()
       ? this.#allEntreprises.filter(
           (entreprise: IEntreprise) =>
-            entreprise.name
+            (entreprise.name
               .toLowerCase()
               .includes(this.keyword().toLowerCase()) ||
-            entreprise.shortDescription
-              .toLowerCase()
-              .includes(this.keyword().toLowerCase())
+              entreprise.shortDescription
+                .toLowerCase()
+                .includes(this.keyword().toLowerCase())) &&
+            (this.city() == '' || entreprise.city == this.city())
         )
       : this.#allEntreprises
   );
-  getFakeEntrepriseData(): IEntreprise {
+
+  getFakeEntrepriseData(name: string, city: City): IEntreprise {
     return {
-      name: 'FakeCorp',
+      name,
       adresse: {
         location: 'Your Company Address',
         phoneNumber1: '+22223456789',
@@ -103,6 +112,7 @@ export class HeroComponent {
         'AWS',
       ],
       logo: 'https://img.logoipsum.com/331.svg',
+      city,
     };
   }
 }
