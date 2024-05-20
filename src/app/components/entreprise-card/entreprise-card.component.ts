@@ -7,6 +7,7 @@ import { SocialLinkComponent } from './social-link/social-link.component';
 import { SocialsComponent } from './socials/socials.component';
 import {
   bootstrapArrowRightShort,
+  bootstrapCursor,
   bootstrapGlobe,
   bootstrapPhone,
 } from '@ng-icons/bootstrap-icons';
@@ -19,6 +20,7 @@ import {
   providers: [
     provideIcons({
       bootstrapArrowRightShort,
+      bootstrapCursor,
       bootstrapGlobe,
       bootstrapPhone,
     }),
