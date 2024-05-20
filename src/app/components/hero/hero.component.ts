@@ -6,7 +6,11 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { bootstrapSearch } from '@ng-icons/bootstrap-icons';
+import {
+  bootstrapSearch,
+  bootstrapBuilding,
+  bootstrapStack,
+} from '@ng-icons/bootstrap-icons';
 import { FormsModule } from '@angular/forms';
 import { IEntreprise } from '../../models/entreprise.model';
 import { EntrepriseCardComponent } from '../entreprise-card/entreprise-card.component';
@@ -19,7 +23,9 @@ import { City } from '../../models/cities.enum';
   imports: [NgIcon, FormsModule, EntrepriseCardComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
-  providers: [provideIcons({ bootstrapSearch })],
+  providers: [
+    provideIcons({ bootstrapSearch, bootstrapBuilding, bootstrapStack }),
+  ],
 })
 export class HeroComponent {
   technology: WritableSignal<string> = signal('');
@@ -34,9 +40,6 @@ export class HeroComponent {
       (entreprise: IEntreprise) =>
         (this.keyword() == '' ||
           entreprise.name
-            .toLowerCase()
-            .includes(this.keyword().toLowerCase()) ||
-          entreprise.shortDescription
             .toLowerCase()
             .includes(this.keyword().toLowerCase())) &&
         (this.city() == '' || entreprise.city == this.city()) &&
