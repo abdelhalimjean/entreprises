@@ -36,6 +36,7 @@ export class HeroComponent implements OnInit {
   keyword: WritableSignal<string> = signal('');
   city: WritableSignal<string> = signal('');
   entrepriseService = inject(EntrepriseService);
+  dataFetched: boolean = false;
 
   cities: City[] = Object.keys(City).map((city) => city as City);
 
@@ -44,21 +45,26 @@ export class HeroComponent implements OnInit {
       .getFakeEntrepriseData()
       .subscribe((data: IEntreprise[]) => {
         this.#allEntreprises = data;
+        this.dataFetched = true;
       });
   }
 
-  filteredEntreprises: Signal<IEntreprise[]> = computed(() =>
-    this.#allEntreprises.filter(
-      (entreprise: IEntreprise) =>
-        (this.keyword() == '' ||
-          entreprise.name
-            .toLowerCase()
-            .includes(this.keyword().toLowerCase())) &&
-        (this.city() == '' || entreprise.city == this.city()) &&
-        ((entreprise.technologiesUsed || []).some((tech) =>
-          tech.toLowerCase().includes(this.technology().toLowerCase())
-        ) ||
-          this.technology() == '')
-    )
-  );
+  filteredEntreprises: Signal<IEntreprise[]> = computed(() => {
+    if (this.dataFetched) {
+      return this.#allEntreprises.filter(
+        (entreprise: IEntreprise) =>
+          (this.keyword() == '' ||
+            entreprise.name
+              .toLowerCase()
+              .includes(this.keyword().toLowerCase())) &&
+          (this.city() == '' || entreprise.city == this.city()) &&
+          ((entreprise.technologiesUsed || []).some((tech) =>
+            tech.toLowerCase().includes(this.technology().toLowerCase())
+          ) ||
+            this.technology() == '')
+      );
+    } else {
+      return []; // Return an empty array if data is not available yet
+    }
+  });
 }
