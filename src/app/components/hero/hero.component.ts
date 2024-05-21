@@ -19,6 +19,7 @@ import { EntrepriseCardComponent } from '../entreprise-card/entreprise-card.comp
 import { SocialMediaPlatform } from '../../models/social-media-plateform.enum';
 import { City } from '../../models/cities.enum';
 import { EntrepriseService } from '../../services/entreprise.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-hero',
@@ -30,28 +31,20 @@ import { EntrepriseService } from '../../services/entreprise.service';
     provideIcons({ bootstrapSearch, bootstrapBuilding, bootstrapStack }),
   ],
 })
-export class HeroComponent implements OnInit {
+export class HeroComponent {
   entrepriseService = inject(EntrepriseService);
   technology: WritableSignal<string> = signal('');
-  #allEntreprises: IEntreprise[];
+  #allEntreprises: Signal<IEntreprise[]> = toSignal(
+    this.entrepriseService.getFakeEntrepriseData()
+  );
   keyword: WritableSignal<string> = signal('');
   city: WritableSignal<string> = signal('');
-  dataFetched: boolean = false;
 
   cities: City[] = Object.keys(City).map((city) => city as City);
 
-  ngOnInit(): void {
-    this.entrepriseService
-      .getFakeEntrepriseData()
-      .subscribe((data: IEntreprise[]) => {
-        this.#allEntreprises = data;
-        this.dataFetched = true;
-      });
-  }
-
   filteredEntreprises: Signal<IEntreprise[]> = computed(() => {
-    if (this.dataFetched) {
-      return this.#allEntreprises.filter(
+    if (this.#allEntreprises) {
+      return this.#allEntreprises().filter(
         (entreprise: IEntreprise) =>
           (this.keyword() == '' ||
             entreprise.name
@@ -64,7 +57,7 @@ export class HeroComponent implements OnInit {
             this.technology() == '')
       );
     } else {
-      return []; // Return an empty array if data is not available yet
+      return []; // Return an empty array if data is not available ye
     }
   });
 }
