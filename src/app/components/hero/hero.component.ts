@@ -2,21 +2,19 @@ import {
   Component,
   computed,
   inject,
-  OnInit,
   Signal,
   signal,
   WritableSignal,
 } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
-  bootstrapSearch,
   bootstrapBuilding,
+  bootstrapSearch,
   bootstrapStack,
 } from '@ng-icons/bootstrap-icons';
 import { FormsModule } from '@angular/forms';
 import { IEntreprise } from '../../models/entreprise.model';
 import { EntrepriseCardComponent } from '../entreprise-card/entreprise-card.component';
-import { SocialMediaPlatform } from '../../models/social-media-plateform.enum';
 import { City } from '../../models/cities.enum';
 import { EntrepriseService } from '../../services/entreprise.service';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -43,7 +41,7 @@ export class HeroComponent {
   cities: City[] = Object.keys(City).map((city) => city as City);
 
   filteredEntreprises: Signal<IEntreprise[]> = computed(() => {
-    if (this.#allEntreprises) {
+    if (this.#allEntreprises()) {
       return this.#allEntreprises().filter(
         (entreprise: IEntreprise) =>
           (this.keyword() == '' ||
