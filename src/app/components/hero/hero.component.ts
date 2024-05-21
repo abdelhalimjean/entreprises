@@ -31,11 +31,11 @@ import { EntrepriseService } from '../../services/entreprise.service';
   ],
 })
 export class HeroComponent implements OnInit {
+  entrepriseService = inject(EntrepriseService);
   technology: WritableSignal<string> = signal('');
   #allEntreprises: IEntreprise[];
   keyword: WritableSignal<string> = signal('');
   city: WritableSignal<string> = signal('');
-  entrepriseService = inject(EntrepriseService);
   dataFetched: boolean = false;
 
   cities: City[] = Object.keys(City).map((city) => city as City);
