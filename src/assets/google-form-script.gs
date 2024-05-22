@@ -2,7 +2,7 @@
  * Array of Discord webhook URLs where the form responses will be sent.
  */
 const webhooks = [
-  'https://discord.com/api/webhooks/1241812632013639750/cG-rCFu2bO58d3eIiLwisCYjpQYA26qxK6-Sl2tUk-s2PJh7Q9utYdJ_FgR6f8FjfJ-j',
+  ${webhook-url},
 ];
 
 /**
