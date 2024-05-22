@@ -12,6 +12,11 @@ En tant qu'employé actuel ou ancien, ou encore en tant que stagiaire, vous avez
 
 Ce projet utilise le framework Angular (https://angular.dev/) pour le développement front-end.
 
+
+<img src="src/assets/tailwindcss-logo.svg" alt="Tailwindcss logo" height=100>
+On utilise aussi TailwindCSS (https://tailwindcss.com/) pour le style et on essaye au maximum d'viter d'écrire du code CSS
+
+
 D'autres technologies peuvent être envisagées pour la partie back-end (TBD)
 
 
