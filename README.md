@@ -6,7 +6,9 @@ L'objectif est de fournir une ressource centralisée pour les chercheurs d'emplo
 
 ## Soyez un acteur du changement ! 💌
 
-En tant qu'employé actuel ou ancien, ou encore en tant que stagiaire, vous avez la possibilité de contribuer à l'enrichissement de ce répertoire en partageant votre expérience au sein d'une entreprise mauritanienne. Vos précieuses informations permettront de compléter les fiches d'entreprise et seront consultables par tous les utilisateurs de la plateforme. N'hésitez pas à partager votre vécu et à aider la communauté à mieux connaître le paysage entrepreneurial mauritanien !
+En tant qu'employé actuel ou ancien, ou encore en tant que stagiaire, vous avez la possibilité de contribuer à l'enrichissement de ce répertoire en partageant votre expérience au sein d'une entreprise mauritanienne.
+
+Vos précieuses informations permettront de compléter les fiches d'entreprise et seront consultables par tous les utilisateurs de la plateforme. N'hésitez pas à partager votre vécu et à aider la communauté à mieux connaître le paysage entrepreneurial mauritanien !
 ## Technologies utilisées 🛠️
 <img src="src/assets/angular-logo.png" alt="Angular logo">
 
@@ -14,9 +16,8 @@ Ce projet utilise le framework Angular (https://angular.dev/) pour le développe
 
 
 <img src="src/assets/tailwindcss-logo.svg" alt="Tailwindcss logo" height=100>
-On utilise aussi TailwindCSS (https://tailwindcss.com/) pour le style et on essaye au maximum d'viter d'écrire du code CSS
-
-
+On utilise aussi TailwindCSS (https://tailwindcss.com/) pour le style et on essaye au maximum d'éviter d'écrire du code CSS
+<br><br>
 D'autres technologies peuvent être envisagées pour la partie back-end (TBD)
 
 
