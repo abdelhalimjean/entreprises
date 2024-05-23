@@ -1,4 +1,5 @@
 <div class="text-center">
+  <app-navbar></app-navbar>
   <div class="heading mb-4 text-3xl font-extrabold drop-shadow-md sm:text-5xl">
     Construisez votre avenir
     <div class="text-xl sm:text-3xl">
@@ -43,6 +44,9 @@
       }
     </select>
   </div>
+    <button (click)="scrollToTop()" class="scroll" title="top">
+    &#8679;
+  </button>
 </div>
 
 @for (entreprise of filteredEntreprises(); track entreprise) {

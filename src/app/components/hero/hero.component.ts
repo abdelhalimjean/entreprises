@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  HostListener,
   inject,
   Signal,
   signal,
@@ -18,11 +19,12 @@ import { EntrepriseCardComponent } from '../entreprise-card/entreprise-card.comp
 import { City } from '../../models/cities.enum';
 import { EntrepriseService } from '../../services/entreprise.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { NavbarComponent } from '../layout/navbar/navbar.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [NgIcon, FormsModule, EntrepriseCardComponent],
+  imports: [NgIcon, FormsModule, EntrepriseCardComponent,NavbarComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   providers: [
@@ -58,4 +60,19 @@ export class HeroComponent {
       return []; // Return an empty array if data is not available ye
     }
   });
+
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const button = document.querySelector('.scroll') as HTMLElement;
+    if (window.scrollY > 200) {
+      button.classList.add('show');
+    } else {
+      button.classList.remove('show');
+    }
+  }
 }
