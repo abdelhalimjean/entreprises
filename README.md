@@ -9,6 +9,11 @@ L'objectif est de fournir une ressource centralisée pour les chercheurs d'emplo
 En tant qu'employé actuel ou ancien, ou encore en tant que stagiaire, vous avez la possibilité de contribuer à l'enrichissement de ce répertoire en partageant votre expérience au sein d'une entreprise mauritanienne.
 
 Vos précieuses informations permettront de compléter les fiches d'entreprise et seront consultables par tous les utilisateurs de la plateforme. N'hésitez pas à partager votre vécu et à aider la communauté à mieux connaître le paysage entrepreneurial mauritanien !
+
+## Guide de contribution 📝
+
+<a href="./CONTRIBUTING.md">CONTRIBUTING.md</a>
+
 ## Technologies utilisées 🛠️
 <img src="src/assets/angular-logo.png" alt="Angular logo">
 
