@@ -17,6 +17,7 @@ Soumettez une demande de fonctionnalité https://github.com/abdelhalimjean/entre
 Voyez-vous des domaines où la documentation pourrait être plus claire ou plus complète ?
 
 Vos contributions à la documentation du projet sont précieuses !
+https://github.com/abdelhalimjean/entreprises/issues/new (avec libellé : 📋 documentation)
 
 # 4-Contribution au code :
 
