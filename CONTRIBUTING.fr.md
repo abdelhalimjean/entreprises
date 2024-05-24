@@ -23,7 +23,7 @@ https://github.com/abdelhalimjean/entreprises/issues/new (avec libellé : 📋 d
 
 Si vous êtes un codeur, nous accueillons les demandes de tirage qui corrigent des bugs, implémentent des fonctionnalités ou améliorent la base de code.
 
-Assurez-vous de suivre le guide de style de codage (si disponible) et d'écrire des messages de commit clairs.
+Assurez-vous de suivre le guide de style de codage (voir section Formatage du code avec Prettier ) et d'écrire des messages de commit clairs.
 
 ## Style avec Tailwind CSS :
 
