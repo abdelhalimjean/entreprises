@@ -4,7 +4,7 @@ Nous sommes heureux que vous souhaitiez faire partie de ce projet. Il existe de 
 
 Identifiez-vous des bugs ou des comportements inattendus dans le projet ?
 
-Déposez un rapport de problème clair et concis pour nous aider à suivre et à résoudre les problèmes.
+Déposez un rapport https://github.com/abdelhalimjean/entreprises/issues/new (avec libellé  : 🐛 bug) de problème clair et concis pour nous aider à suivre et à résoudre les problèmes.
 
 # 2-Demandes de fonctionnalités :
 
