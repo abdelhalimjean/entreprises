@@ -10,7 +10,7 @@ Déposez un rapport https://github.com/abdelhalimjean/entreprises/issues/new (av
 
 Avez-vous une idée pour une nouvelle fonctionnalité qui améliorerait le projet ?
 
-Soumettez une demande de fonctionnalité bien définie pour nous aider à façonner l'avenir du projet.
+Soumettez une demande de fonctionnalité https://github.com/abdelhalimjean/entreprises/issues/new (avec libellé  : 🌟feature)  bien définie pour nous aider à façonner l'avenir du projet.
 
 # 3-Documentation :
 
