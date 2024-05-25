@@ -26,51 +26,53 @@ Make sure to follow the coding style guide (if available) and write clear commit
 
 ## Styling with Tailwind CSS:
 
-This project uses Tailwind CSS for styling. When making code contributions, please adhere to the Tailwind CSS naming conventions to maintain a consistent and maintainable codebase.  Only use custom CSS classes if absolutely necessary, as Tailwind CSS offers a wide range of utility classes for most styling needs.
+This project uses Tailwind CSS for styling. When making code contributions, please adhere to the Tailwind CSS naming conventions to maintain a consistent and maintainable codebase. Only use custom CSS classes if absolutely necessary, as Tailwind CSS offers a wide range of utility classes for most styling needs.
 
 Benefits of Tailwind CSS for Teams:
 
 - ### Consistency:
 
   Tailwind CSS promotes consistent design across the project by using pre-defined utility classes. This reduces the risk of style conflicts and makes it easier for new team members to jump in.
+
 - ### Maintainability:
 
   A smaller codebase with less custom CSS means the project is easier to maintain and update in the long run.
+
 - ### Efficiency:
 
   Tailwind CSS allows developers to style components quickly by applying utility classes directly in the HTML. This can lead to faster development cycles.
 
   This a quick cheat sheet for TailwindCSS to ge you started https://tailwindcomponents.com/cheatsheet/
+
 ## Code Formatting with Prettier:
 
 This project uses Prettier for automatic code formatting. Prettier is a tool that enforces consistent style across your codebase, improving readability and maintainability.
 
 - ## Enabling Prettier:
 
-    - ### Visual Studio Code:
-        Install the "Prettier - Code Formatter" extension from the VS Code marketplace.
-      
-        Open the VS Code settings (Code > Preferences > Settings).
-      
-        Search for "Prettier" and enable the options "Format On Save"
-      
-        Make sure to put the path to prettier ./node_modules/prettier
-      ![image](https://github.com/abdelhalimjean/entreprises/assets/22223193/512ea292-bf04-4943-abd1-befd77814f19)
+  - ### Visual Studio Code:
 
+    Install the "Prettier - Code Formatter" extension from the VS Code marketplace.
 
-    - ### IntelliJ IDEA (and other JetBrains IDEs):
-        Install the Prettier plugin from the JetBrains plugin marketplace.
-      
-        Go to File > Settings > Editor > Code Style > Prettier.
-      
-        Enable the options "Run on 'Reformat Code' action" and "On save".
-      
-      ![image](https://github.com/abdelhalimjean/entreprises/assets/22223193/021052a3-22ba-44d7-82e2-433fdd989d79)
+    Open the VS Code settings (Code > Preferences > Settings).
 
+    Search for "Prettier" and enable the options "Format On Save"
 
-    For more details go to this guide : https://prettier.io/docs/en/editors.html
+    Make sure to put the path to prettier ./node_modules/prettier
+    ![image](https://github.com/abdelhalimjean/entreprises/assets/22223193/512ea292-bf04-4943-abd1-befd77814f19)
 
-  
-    By following these formatting guidelines, you'll be contributing to a cleaner and more consistent codebase for everyone.
+  - ### IntelliJ IDEA (and other JetBrains IDEs):
 
-By contributing in any of these ways, you're helping to make this project better for everyone.  Thank you!
+    Install the Prettier plugin from the JetBrains plugin marketplace.
+
+    Go to File > Settings > Editor > Code Style > Prettier.
+
+    Enable the options "Run on 'Reformat Code' action" and "On save".
+
+    ![image](https://github.com/abdelhalimjean/entreprises/assets/22223193/021052a3-22ba-44d7-82e2-433fdd989d79)
+
+  For more details go to this guide : https://prettier.io/docs/en/editors.html
+
+  By following these formatting guidelines, you'll be contributing to a cleaner and more consistent codebase for everyone.
+
+By contributing in any of these ways, you're helping to make this project better for everyone. Thank you!
