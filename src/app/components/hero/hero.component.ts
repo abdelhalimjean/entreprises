@@ -2,6 +2,7 @@ import {
   Component,
   computed,
   inject,
+  OnInit,
   Signal,
   signal,
   WritableSignal,
@@ -18,6 +19,7 @@ import { EntrepriseCardComponent } from '../entreprise-card/entreprise-card.comp
 import { City } from '../../models/cities.enum';
 import { EntrepriseService } from '../../services/entreprise.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -29,7 +31,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
     provideIcons({ bootstrapSearch, bootstrapBuilding, bootstrapStack }),
   ],
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
+  private route = inject(ActivatedRoute);
   entrepriseService = inject(EntrepriseService);
   technology: WritableSignal<string> = signal('');
   #allEntreprises: Signal<IEntreprise[]> = toSignal(
@@ -58,4 +61,13 @@ export class HeroComponent {
       return []; // Return an empty array if data is not available ye
     }
   });
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      const technology = params['technology'];
+      if (technology) {
+        this.technology.set(technology);
+      }
+    });
+  }
 }

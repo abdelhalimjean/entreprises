@@ -65,6 +65,7 @@
       @for (technology of entreprise().technologiesUsed; track technology) {
         <div
           class="m-1 inline-block cursor-pointer rounded-lg border border-solid border-byte-400 px-1 text-byte-400"
+          (click)="openTechnologyTab(technology)"
         >
           {{ technology }}
         </div>
