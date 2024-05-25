@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, inject, input, InputSignal } from '@angular/core';
 import { IEntreprise } from '../../models/entreprise.model';
 import { NgOptimizedImage } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
@@ -11,6 +11,7 @@ import {
   bootstrapGlobe,
   bootstrapPhone,
 } from '@ng-icons/bootstrap-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entreprise-card',
@@ -27,5 +28,13 @@ import {
   ],
 })
 export class EntrepriseCardComponent {
+  private router = inject(Router);
   entreprise: InputSignal<IEntreprise> = input.required();
+
+  openTechnologyTab(technology: string): void {
+    const url = this.router
+      .createUrlTree([], { queryParams: { technology } })
+      .toString();
+    window.open(url, '_blank');
+  }
 }
