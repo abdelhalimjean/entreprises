@@ -38,6 +38,17 @@
         {{ entreprise().city }}
       </span>
     }
+     @if(entreprise().id){
+      <span class="inline-block py-1 px-2 text-sm text-blue-500 bg-gradient-to-r from-lime-400 hover:bg-gradient-to-l from-lime-400 rounded-lg">
+        <ng-icon name="bootstrapFolderSymlink" class="align-middle text-base" />
+        <a
+          class=""
+          href="/entreprises/{{ entreprise().id }}"
+        >
+          Voir plus
+        </a>
+      </span>
+    }
   </div>
 
   <div>

@@ -1,1 +1,4 @@
-<p>markdown works!</p>
+<app-editable-markdown
+    [markdownText]="markdownContent"
+    (markdownChanged)="onMarkdownChange($event)"
+></app-editable-markdown>

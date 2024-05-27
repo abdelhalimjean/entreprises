@@ -1,1 +1,12 @@
-<p>editable-markdown works!</p>
+<div>
+  <section >
+    <markdown [data]="markdownText" emoji></markdown>
+  </section>
+  <br>
+  <button (click)="toggleEditor()" >Modifier le contenu de cette page</button>
+  <br>
+  <br>
+  <section *ngIf="showEditor">
+    <textarea  title="markdownText" [(ngModel)]="markdownText" rows="10" cols="80"></textarea>
+  </section>
+</div>
