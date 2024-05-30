@@ -12,6 +12,7 @@ import {
   bootstrapBuilding,
   bootstrapSearch,
   bootstrapStack,
+  bootstrapArrowCounterclockwise,
 } from '@ng-icons/bootstrap-icons';
 import { FormsModule } from '@angular/forms';
 import { IEntreprise } from '../../models/entreprise.model';
@@ -28,7 +29,12 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   providers: [
-    provideIcons({ bootstrapSearch, bootstrapBuilding, bootstrapStack }),
+    provideIcons({
+      bootstrapSearch,
+      bootstrapBuilding,
+      bootstrapStack,
+      bootstrapArrowCounterclockwise,
+    }),
   ],
 })
 export class HeroComponent implements OnInit {
@@ -75,7 +81,7 @@ export class HeroComponent implements OnInit {
     this.isSpinning = true;
     setTimeout(() => {
       this.isSpinning = false;
-    }, 300);
+    }, 200);
     this.keyword.set('');
     this.technology.set('');
     this.city.set('');

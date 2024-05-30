@@ -42,12 +42,13 @@
         </option>
       }
     </select>
-    <button (click)="resetFields()" class="relative m-4">
-      <i
-        class="pi pi-refresh animate-spin"
+    <button (click)="resetFields()" class="relative m-2">
+      <ng-icon
+        class="search-icon"
+        name="bootstrapArrowCounterclockwise"
         [class.animate-spin]="isSpinning"
-        [style.animationDuration]="isSpinning ? '0.4s' : ''"
-      ></i>
+        [style.animationDuration]="isSpinning ? '0.2s' : ''"
+      ></ng-icon>
     </button>
   </div>
 </div>
