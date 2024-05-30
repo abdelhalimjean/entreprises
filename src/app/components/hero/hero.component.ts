@@ -42,6 +42,7 @@ export class HeroComponent implements OnInit {
   city: WritableSignal<string> = signal('');
 
   cities: City[] = Object.keys(City).map((city) => city as City);
+  isSpinning = false;
 
   filteredEntreprises: Signal<IEntreprise[]> = computed(() => {
     if (this.#allEntreprises()) {
@@ -69,5 +70,14 @@ export class HeroComponent implements OnInit {
         this.technology.set(technology);
       }
     });
+  }
+  resetFields(): void {
+    this.isSpinning = true;
+    setTimeout(() => {
+      this.isSpinning = false;
+    }, 300);
+    this.keyword.set('');
+    this.technology.set('');
+    this.city.set('');
   }
 }

@@ -24,6 +24,7 @@
     "@ng-icons/bootstrap-icons": "^27.4.0",
     "@ng-icons/core": "^27.4.0",
     "express": "^4.19.2",
+    "primeicons": "^7.0.0",
     "primeng": "^17.17.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
