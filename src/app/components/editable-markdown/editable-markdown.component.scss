@@ -1,0 +1,36 @@
+:host {  
+  --background-color: #f5f5f5;
+  --text-color: #212529;
+  --border-color: #ced4da;
+  --font-family: monospace;
+  --textarea-width: 90%; 
+  --textarea-height: 300px; 
+}
+
+textarea {
+  width: var(--textarea-width);
+  height: var(--textarea-height);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  font-family: var(--font-family);
+  resize: vertical;
+}
+
+markdown {
+  padding: 20px;
+}
+button {
+  background-color: #e9ecef; 
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;  
+  cursor: pointer;
+  transition: background-color 0.3s; 
+  font-size: medium;
+
+  &:hover {
+    background-color: #ced4da;  
+  }
+}
