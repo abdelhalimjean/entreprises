@@ -28,6 +28,7 @@
     "marked": "17.2.1",
     "ngx-markdown": "^17.2.1",
     "prismjs": "^1.29.0",
+    "primeng": "^17.17.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.5"
