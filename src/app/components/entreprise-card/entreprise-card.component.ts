@@ -10,6 +10,7 @@ import {
   bootstrapCursor,
   bootstrapGlobe,
   bootstrapPhone,
+  bootstrapFolderSymlink,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
 
@@ -24,6 +25,7 @@ import { Router } from '@angular/router';
       bootstrapCursor,
       bootstrapGlobe,
       bootstrapPhone,
+      bootstrapFolderSymlink,
     }),
   ],
 })

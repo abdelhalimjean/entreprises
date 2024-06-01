@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "InnovateTech",
     "city": "Nouakchott",
     "adresse": {
@@ -66,6 +67,7 @@
     "logo": "https://img.logoipsum.com/332.svg"
   },
   {
+    "id": 2,
     "name": "TechSolutions",
     "city": "Nouadhibou",
     "adresse": {
@@ -132,6 +134,7 @@
     "logo": "https://img.logoipsum.com/331.svg"
   },
   {
+    "id": 3,
     "name": "InnovateCorp",
     "city": "Nouakchott",
     "adresse": {
@@ -198,6 +201,7 @@
     "logo": "https://img.logoipsum.com/298.svg"
   },
   {
+    "id": 4,
     "name": "TechCorp",
     "city": "Nouadhibou",
     "adresse": {
