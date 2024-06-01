@@ -2,6 +2,7 @@ import { SocialMediaPlatform } from './social-media-plateform.enum';
 import { City } from './cities.enum';
 
 export interface IEntreprise {
+  id: number;
   name: string;
   adresse: IAdresse;
   shortDescription: string;
