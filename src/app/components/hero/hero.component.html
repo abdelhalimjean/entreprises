@@ -42,6 +42,14 @@
         </option>
       }
     </select>
+    <button (click)="resetFields()" class="relative m-2">
+      <ng-icon
+        class="search-icon"
+        name="bootstrapArrowCounterclockwise"
+        [class.animate-spin]="isSpinning"
+        [style.animationDuration]="isSpinning ? '0.2s' : ''"
+      ></ng-icon>
+    </button>
   </div>
 </div>
 
