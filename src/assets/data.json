@@ -1,0 +1,270 @@
+[
+  {
+    "id": 1,
+    "name": "InnovateTech",
+    "city": "Nouakchott",
+    "adresse": {
+      "location": "123 Innovation St",
+      "phoneNumber1": "+22234567890",
+      "website": "https://www.innovatetech.com",
+      "socials": [
+        {
+          "platform": "Linkedin",
+          "value": "https://www.linkedin.com/company/innovatetech"
+        },
+        {
+          "platform": "Facebook",
+          "value": "https://www.facebook.com/innovatetech"
+        },
+        {
+          "platform": "Instagram",
+          "value": "https://www.instagram.com/innovatetechglobal"
+        },
+        {
+          "platform": "WhatsApp",
+          "value": "https://chat.whatsapp.com/2234567890"
+        },
+        {
+          "platform": "Youtube",
+          "value": "https://www.youtube.com/innovatetech"
+        },
+        {
+          "platform": "Twitter",
+          "value": "https://twitter.com/InnovateTech"
+        },
+        {
+          "platform": "Github",
+          "value": "https://github.com/InnovateTech"
+        },
+        {
+          "platform": "Gitlab",
+          "value": "https://gitlab.com/innovatetech"
+        },
+        {
+          "platform": "Telegram",
+          "value": "https://t.me/innovatetech"
+        },
+        {
+          "platform": "Discord",
+          "value": "https://discord.gg/innovatetech"
+        }
+      ]
+    },
+    "shortDescription": "InnovateTech: Shaping the Future with Innovation",
+    "longDescription": "At the forefront of technological advancements since 1980, InnovateTech is a key player in the tech industry, driving future trends. With expertise in AI, software development, cloud computing, and telecommunications, the company offers cutting-edge solutions to help businesses and individuals transition towards a sustainable future.",
+    "sectors": ["Technology", "AI", "Software", "Consulting"],
+    "technologiesUsed": [
+      "Java",
+      "Vue.js",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "Google Cloud"
+    ],
+    "logo": "https://img.logoipsum.com/332.svg"
+  },
+  {
+    "id": 2,
+    "name": "TechSolutions",
+    "city": "Nouadhibou",
+    "adresse": {
+      "location": "456 Tech Avenue",
+      "phoneNumber1": "+22234567891",
+      "website": "https://www.techsolutions.com",
+      "socials": [
+        {
+          "platform": "Linkedin",
+          "value": "https://www.linkedin.com/company/techsolutions"
+        },
+        {
+          "platform": "Facebook",
+          "value": "https://www.facebook.com/techsolutions"
+        },
+        {
+          "platform": "Instagram",
+          "value": "https://www.instagram.com/techsolutionsglobal"
+        },
+        {
+          "platform": "WhatsApp",
+          "value": "https://chat.whatsapp.com/2234567891"
+        },
+        {
+          "platform": "Youtube",
+          "value": "https://www.youtube.com/techsolutions"
+        },
+        {
+          "platform": "Twitter",
+          "value": "https://twitter.com/TechSolutions"
+        },
+        {
+          "platform": "Github",
+          "value": "https://github.com/TechSolutions"
+        },
+        {
+          "platform": "Gitlab",
+          "value": "https://gitlab.com/techsolutions"
+        },
+        {
+          "platform": "Telegram",
+          "value": "https://t.me/techsolutions"
+        },
+        {
+          "platform": "Discord",
+          "value": "https://discord.gg/techsolutions"
+        }
+      ]
+    },
+    "shortDescription": "TechSolutions: Bridging Innovation and Excellence",
+    "longDescription": "TechSolutions has been a pioneering force in the technology sector since 1985, establishing itself as a leader in innovation. The company excels in AI, software development, cloud services, and telecommunications, offering comprehensive solutions that support the digital transformation of businesses and individuals towards a sustainable future.",
+    "sectors": ["Technology", "AI", "Software", "Consulting"],
+    "technologiesUsed": [
+      "Ruby",
+      "React",
+      "HTML",
+      "CSS",
+      "Sass",
+      "Django",
+      "Next.js",
+      "JavaScript",
+      "Microsoft Azure"
+    ],
+    "logo": "https://img.logoipsum.com/331.svg"
+  },
+  {
+    "id": 3,
+    "name": "InnovateCorp",
+    "city": "Nouakchott",
+    "adresse": {
+      "location": "789 Corporate Blvd",
+      "phoneNumber1": "+22245678901",
+      "website": "https://www.innovatecorp.com",
+      "socials": [
+        {
+          "platform": "Linkedin",
+          "value": "https://www.linkedin.com/company/innovatecorp"
+        },
+        {
+          "platform": "Facebook",
+          "value": "https://www.facebook.com/innovatecorp"
+        },
+        {
+          "platform": "Instagram",
+          "value": "https://www.instagram.com/innovatecorpglobal"
+        },
+        {
+          "platform": "WhatsApp",
+          "value": "https://chat.whatsapp.com/2345678901"
+        },
+        {
+          "platform": "Youtube",
+          "value": "https://www.youtube.com/innovatecorp"
+        },
+        {
+          "platform": "Twitter",
+          "value": "https://twitter.com/InnovateCorp"
+        },
+        {
+          "platform": "Github",
+          "value": "https://github.com/InnovateCorp"
+        },
+        {
+          "platform": "Gitlab",
+          "value": "https://gitlab.com/innovatecorp"
+        },
+        {
+          "platform": "Telegram",
+          "value": "https://t.me/innovatecorp"
+        },
+        {
+          "platform": "Discord",
+          "value": "https://discord.gg/innovatecorp"
+        }
+      ]
+    },
+    "shortDescription": "InnovateCorp: Innovating the Future Today",
+    "longDescription": "Since 1990, InnovateCorp has been at the cutting edge of technology, driving forward the industry with groundbreaking advancements. Specializing in AI, software, cloud computing, and telecommunications, InnovateCorp provides state-of-the-art solutions to empower businesses and individuals in their journey towards a sustainable future.",
+    "sectors": ["Technology", "AI", "Software", "Consulting"],
+    "technologiesUsed": [
+      "Go",
+      "Svelte",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "Vue.js",
+      "Express",
+      "JavaScript",
+      "IBM Cloud"
+    ],
+    "logo": "https://img.logoipsum.com/298.svg"
+  },
+  {
+    "id": 4,
+    "name": "TechCorp",
+    "city": "Nouadhibou",
+    "adresse": {
+      "location": "321 Corporate Drive",
+      "phoneNumber1": "+22245678902",
+      "website": "https://www.techcorp.com",
+      "socials": [
+        {
+          "platform": "Linkedin",
+          "value": "https://www.linkedin.com/company/techcorp"
+        },
+        {
+          "platform": "Facebook",
+          "value": "https://www.facebook.com/techcorp"
+        },
+        {
+          "platform": "Instagram",
+          "value": "https://www.instagram.com/techcorpglobal"
+        },
+        {
+          "platform": "WhatsApp",
+          "value": "https://chat.whatsapp.com/2345678902"
+        },
+        {
+          "platform": "Youtube",
+          "value": "https://www.youtube.com/techcorp"
+        },
+        {
+          "platform": "Twitter",
+          "value": "https://twitter.com/TechCorp"
+        },
+        {
+          "platform": "Github",
+          "value": "https://github.com/TechCorp"
+        },
+        {
+          "platform": "Gitlab",
+          "value": "https://gitlab.com/techcorp"
+        },
+        {
+          "platform": "Telegram",
+          "value": "https://t.me/techcorp"
+        },
+        {
+          "platform": "Discord",
+          "value": "https://discord.gg/techcorp"
+        }
+      ]
+    },
+    "shortDescription": "TechCorp: Connecting the World, Shaping the Future",
+    "longDescription": "Established in 1995, TechCorp has positioned itself as a technological powerhouse, spearheading innovation across various domains. With a focus on AI, software development, cloud computing, and telecommunications, TechCorp delivers advanced solutions to support businesses and individuals in their transition towards a sustainable and technologically advanced future.",
+    "sectors": ["Technology", "AI", "Software", "Consulting"],
+    "technologiesUsed": [
+      "Kotlin",
+      "Angular",
+      "HTML",
+      "CSS",
+      "Tailwind",
+      "React",
+      "Next.js",
+      "JavaScript",
+      "Oracle Cloud"
+    ],
+    "logo": "https://img.logoipsum.com/292.svg"
+  }
+]
