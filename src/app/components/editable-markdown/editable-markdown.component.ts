@@ -7,12 +7,13 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-editable-markdown',
   standalone: true,
-  imports: [CommonModule, FormsModule, MarkdownModule],
+  imports: [CommonModule, FormsModule, MarkdownModule,TranslateModule],
   templateUrl: './editable-markdown.component.html',
   styleUrl: './editable-markdown.component.scss',
   encapsulation: ViewEncapsulation.ShadowDom,

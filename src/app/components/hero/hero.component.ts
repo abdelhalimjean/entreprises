@@ -21,11 +21,12 @@ import { City } from '../../models/cities.enum';
 import { EntrepriseService } from '../../services/entreprise.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [NgIcon, FormsModule, EntrepriseCardComponent],
+  imports: [NgIcon, FormsModule, EntrepriseCardComponent,TranslateModule],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   providers: [

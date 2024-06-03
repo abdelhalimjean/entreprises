@@ -1,11 +1,6 @@
 <div class="mx-auto my-12 rounded-xl bg-white p-4 text-slate-900 md:w-2/3">
   @if (entreprise().logo) {
-    <img
-      src="{{ entreprise().logo }}"
-      alt="Logo {{ entreprise().name }}"
-      class="h-12"
-      loading="lazy"
-    />
+  <img src="{{ entreprise().logo }}" alt="Logo {{ entreprise().name }}" class="h-12" loading="lazy" />
   }
   <div class="text-lg font-bold text-byte-400">
     {{ entreprise().name }}
@@ -13,41 +8,33 @@
 
   <div class="sm:flex-row sm:gap-2 md:flex md:gap-10">
     @if (entreprise().adresse.phoneNumber1) {
-      <a
-        class="inline-block py-1 text-sm text-blue-500"
-        href="tel:{{ entreprise().adresse.phoneNumber1 }}"
-      >
-        <ng-icon name="bootstrapPhone" class="align-middle text-base" />
-        {{ entreprise().adresse.phoneNumber1 }}
-      </a>
+    <a class="inline-block py-1 text-sm text-blue-500" href="tel:{{ entreprise().adresse.phoneNumber1 }}">
+      <ng-icon name="bootstrapPhone" class="align-middle text-base" />
+      {{ entreprise().adresse.phoneNumber1 }}
+    </a>
     }
     @if (entreprise().adresse.website) {
-      <div>
-        <a
-          class="inline-block py-1 text-sm text-blue-500"
-          href="{{ entreprise().adresse.website }}"
-        >
-          <ng-icon name="bootstrapGlobe" class="align-middle text-base" />
-          {{ entreprise().adresse.website }}
-        </a>
-      </div>
+    <div>
+      <a class="inline-block py-1 text-sm text-blue-500" href="{{ entreprise().adresse.website }}">
+        <ng-icon name="bootstrapGlobe" class="align-middle text-base" />
+        {{ entreprise().adresse.website }}
+      </a>
+    </div>
     }
-    @if (entreprise().city) {
-      <span class="inline-block py-1 text-sm text-blue-500">
-        <ng-icon name="bootstrapCursor" class="align-middle text-base" />
-        {{ entreprise().city }}
-      </span>
+    @if (entreprise().city | translate) {
+    <span class="inline-block py-1 text-sm text-blue-500">
+      <ng-icon name="bootstrapCursor" class="align-middle text-base" />
+      {{ entreprise().city | translate }}
+    </span>
     }
-     @if(entreprise().id){
-      <span class="inline-block py-1 px-2 text-sm text-blue-500 bg-gradient-to-r from-lime-400 hover:bg-gradient-to-l from-lime-400 rounded-lg">
-        <ng-icon name="bootstrapFolderSymlink" class="align-middle text-base" />
-        <a
-          class=""
-          href="/entreprises/{{ entreprise().id }}"
-        >
-          Voir plus
-        </a>
-      </span>
+    @if(entreprise().id){
+    <span
+      class="inline-block py-1 px-2 text-sm text-blue-500 bg-gradient-to-r from-lime-400 hover:bg-gradient-to-l from-lime-400 rounded-lg">
+      <ng-icon name="bootstrapFolderSymlink" class="align-middle text-base" />
+      <a class="" href="/entreprises/{{ entreprise().id }}">
+        {{ 'Voir plus' | translate }}
+      </a>
+    </span>
     }
   </div>
 
@@ -59,29 +46,25 @@
   </div>
 
   @if (entreprise().sectors.length) {
-    <div class="my-2 text-sm">
-      Secteurs :
-      @for (sector of entreprise().sectors; track sector) {
-        <div
-          class="m-1 inline-block cursor-pointer rounded-lg border border-solid border-amber-500 px-1 text-amber-500"
-        >
-          {{ sector }}
-        </div>
-      }
+  <div class="my-2 text-sm">
+    {{ 'Secteurs' | translate }}
+    @for (sector of entreprise().sectors; track sector) {
+    <div class="m-1 inline-block cursor-pointer rounded-lg border border-solid border-amber-500 px-1 text-amber-500">
+      {{ sector }}
     </div>
+    }
+  </div>
   }
   @if (entreprise().technologiesUsed.length) {
-    <div class="my-2 text-sm">
-      Technologies :
-      @for (technology of entreprise().technologiesUsed; track technology) {
-        <div
-          class="m-1 inline-block cursor-pointer rounded-lg border border-solid border-byte-400 px-1 text-byte-400"
-          (click)="openTechnologyTab(technology)"
-        >
-          {{ technology }}
-        </div>
-      }
+  <div class="my-2 text-sm">
+    {{ 'Technologies'| translate }}
+    @for (technology of entreprise().technologiesUsed; track technology) {
+    <div class="m-1 inline-block cursor-pointer rounded-lg border border-solid border-byte-400 px-1 text-byte-400"
+      (click)="openTechnologyTab(technology)">
+      {{ technology }}
     </div>
+    }
+  </div>
   }
   <app-socials [socials]="entreprise().adresse.socials" />
 </div>

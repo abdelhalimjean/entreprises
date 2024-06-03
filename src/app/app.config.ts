@@ -10,6 +10,7 @@ import {
   withFetch,
 } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { AppTranslateModule } from './translate/app-translate.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(withFetch()),
     importProvidersFrom(HttpClientModule, MarkdownModule.forRoot()),
+    importProvidersFrom(AppTranslateModule.forRoot()),
     importProvidersFrom(HttpClientModule),
     provideAnimations(),
   ],

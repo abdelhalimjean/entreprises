@@ -13,11 +13,12 @@ import {
   bootstrapFolderSymlink,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-entreprise-card',
   standalone: true,
-  imports: [NgOptimizedImage, NgIcon, SocialLinkComponent, SocialsComponent],
+  imports: [NgOptimizedImage, NgIcon, SocialLinkComponent, SocialsComponent,TranslateModule],
   templateUrl: './entreprise-card.component.html',
   providers: [
     provideIcons({

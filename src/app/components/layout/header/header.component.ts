@@ -8,11 +8,12 @@ import {
   bootstrapDiscord,
   bootstrapWhatsapp,
 } from '@ng-icons/bootstrap-icons';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgIcon, RouterLink, NgClass],
+  imports: [NgIcon, RouterLink, NgClass,TranslateModule],
   templateUrl: './header.component.html',
   providers: [
     provideIcons({ bootstrapGithub, bootstrapDiscord, bootstrapWhatsapp }),
@@ -21,6 +22,9 @@ import {
 export class HeaderComponent implements OnInit {
   #platformId: Object = inject(PLATFORM_ID);
   showBlurredNavbar = false;
+  lang :any ='';
+
+  constructor(public translateService : TranslateService){}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.#platformId)) {
@@ -28,6 +32,15 @@ export class HeaderComponent implements OnInit {
       fromEvent(window, 'scroll').subscribe(() => {
         this.showBlurredNavbar = window.scrollY > 0;
       });
+      this.lang = localStorage.getItem("preferredLanguage");
     }
+
+  }
+
+  
+  changeLanguage(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.translateService.use(selectElement.value);
+    localStorage.setItem('preferredLanguage', selectElement.value);
   }
 }
