@@ -13,46 +13,28 @@
   <div>
     <div class="fade-in search">
       <ng-icon class="search-icon" name="bootstrapBuilding" />
-      <input
-        type="text"
-        class="search-input"
-        placeholder="{{ 'Nom entreprise' | translate }}"
-        [(ngModel)]="keyword"
-        translate
-      />
+      <input type="text" class="search-input" placeholder="{{ 'Nom entreprise' | translate }}" [(ngModel)]="keyword"
+        translate />
     </div>
     <div class="fade-in search">
       <ng-icon class="search-icon" name="bootstrapStack" />
-      <input
-        type="text"
-        class="search-input"
-        placeholder="{{ 'Technologie' | translate }}"
-        [(ngModel)]="technology"
-      />
+      <input type="text" class="search-input" placeholder="{{ 'Technologie' | translate }}" [(ngModel)]="technology" />
     </div>
-    <select
-      [(ngModel)]="city"
-      title="villes"
-      class="border-none bg-transparent px-2"
-    >
+    <select [(ngModel)]="city" title="villes" class="border-none bg-transparent px-2">
       <option value="" class="text-black">{{ 'Toutes les villes' | translate }}</option>
       @for (city of cities; track city) {
-        <option value="{{ city }}" class="text-pretty text-black">
-          {{ city | translate }}
-        </option>
+      <option value="{{ city }}" class="text-pretty text-black">
+        {{ city | translate }}
+      </option>
       }
     </select>
     <button (click)="resetFields()" class="relative m-2">
-      <ng-icon
-        class="search-icon"
-        name="bootstrapArrowCounterclockwise"
-        [class.animate-spin]="isSpinning"
-        [style.animationDuration]="isSpinning ? '0.2s' : ''"
-      ></ng-icon>
+      <ng-icon class="search-icon" name="bootstrapArrowCounterclockwise" [class.animate-spin]="isSpinning"
+        [style.animationDuration]="isSpinning ? '0.2s' : ''"></ng-icon>
     </button>
   </div>
 </div>
 
 @for (entreprise of filteredEntreprises(); track entreprise) {
-  <app-entreprise-card [entreprise]="entreprise" />
+<app-entreprise-card [entreprise]="entreprise" />
 }
