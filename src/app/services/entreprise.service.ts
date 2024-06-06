@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { EnvironmentInjector, Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { IEntreprise } from '../models/entreprise.model';
 
 @Injectable({
@@ -8,7 +8,8 @@ import { IEntreprise } from '../models/entreprise.model';
 })
 export class EntrepriseService {
   private dataUrl = 'assets/data.json';
-  private discordWebhookUrl = 'WEBHOOK_URL';
+  private discordWebhookUrl =
+    'https://discordapp.com/api/webhooks/1248007146331836586/OVpJUtJEJiAtgqpoXTq-Hun73ujrq1tK5QEHeukK65fDQUnI32OvFL_n27uSOjdk3ROF';
 
   constructor(private http: HttpClient) {}
 
@@ -21,6 +22,23 @@ export class EntrepriseService {
     return this.http.post(this.discordWebhookUrl, data, { headers }).pipe(
       catchError((error) => {
         console.error('Error posting data to Discord:', error);
+        throw error;
+      })
+    );
+  }
+
+  getEntrepriseById(id: string): Observable<IEntreprise> {
+    return this.http.get<IEntreprise[]>(this.dataUrl).pipe(
+      map((entreprises: IEntreprise[]) => {
+        const entreprise = entreprises.find((e) => e.id === Number(id));
+        if (entreprise) {
+          return entreprise;
+        } else {
+          throw new Error('Entreprise not found');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error fetching entreprise by id:', error);
         throw error;
       })
     );

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
@@ -14,15 +14,17 @@ import { EditableMarkdownComponent } from '../editable-markdown/editable-markdow
 })
 export class MarkdownComponent implements OnInit {
   markdownContent = '';
+  companyId: any = null;
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      const companyId = params['id'];
-      this.loadMarkdown(companyId);
+      this.companyId = params['id'];
+      this.loadMarkdown(this.companyId);
     });
   }
 
@@ -33,5 +35,10 @@ export class MarkdownComponent implements OnInit {
   }
   onMarkdownChange(newContent: string) {
     this.markdownContent = newContent;
+  }
+  updateCompany() {
+    if (this.companyId !== null) {
+      this.router.navigate(['/entreprise-form', this.companyId]);
+    }
   }
 }

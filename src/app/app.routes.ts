@@ -13,7 +13,11 @@ export const routes: Routes = [
     component: MarkdownComponent,
   },
   {
-    path: 'add',
+    path: 'entreprise-form',
+    component: EntrepriseFormComponent,
+  },
+  {
+    path: 'entreprise-form/:id',
     component: EntrepriseFormComponent,
   },
 ];

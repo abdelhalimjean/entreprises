@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
@@ -37,12 +38,14 @@ export class EntrepriseFormComponent implements OnInit {
   displayDialog: boolean = false;
   isBrowser: boolean = false;
   data: any;
+  entrepriseId: any | null = null;
 
   constructor(
     private fb: FormBuilder,
     @Inject(PLATFORM_ID) private platformId: Object,
     private entrepriseService: EntrepriseService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -66,7 +69,52 @@ export class EntrepriseFormComponent implements OnInit {
         technologiesUsed: [[], Validators.required],
         logo: ['', Validators.required],
       });
+
+      // Check for id parameter
+      this.route.paramMap.subscribe((params) => {
+        const idParam = params.get('id');
+        this.entrepriseId = idParam ? +idParam : null;
+        if (this.entrepriseId) {
+          this.loadEntrepriseData(this.entrepriseId);
+        }
+      });
     }
+  }
+
+  loadEntrepriseData(id: string) {
+    this.entrepriseService.getEntrepriseById(id).subscribe(
+      (data) => {
+        this.companyForm.patchValue({
+          name: data.name,
+          city: data.city,
+          adresse: {
+            location: data.adresse.location,
+            phoneNumber1: data.adresse.phoneNumber1,
+            website: data.adresse.website,
+            youtube:
+              data.adresse.socials.find((s: any) => s.platform === 'Youtube')
+                ?.value || '',
+            linkedin:
+              data.adresse.socials.find((s: any) => s.platform === 'Linkedin')
+                ?.value || '',
+            github:
+              data.adresse.socials.find((s: any) => s.platform === 'Github')
+                ?.value || '',
+            facebook:
+              data.adresse.socials.find((s: any) => s.platform === 'Facebook')
+                ?.value || '',
+          },
+          shortDescription: data.shortDescription,
+          longDescription: data.longDescription,
+          sectors: data.sectors,
+          technologiesUsed: data.technologiesUsed,
+          logo: data.logo,
+        });
+      },
+      (error) => {
+        console.error('Error loading entreprise data', error);
+      }
+    );
   }
 
   onSubmit() {
@@ -82,21 +130,42 @@ export class EntrepriseFormComponent implements OnInit {
       ];
 
       // Construct result object
-      const result = {
-        name: formData.name,
-        city: formData.city,
-        adresse: {
-          location: formData.adresse.location,
-          phoneNumber1: formData.adresse.phoneNumber1,
-          website: formData.adresse.website,
-          socials: socials.filter((social) => social.value), // Remove empty values
-        },
-        shortDescription: formData.shortDescription,
-        longDescription: formData.longDescription,
-        sectors: formData.sectors,
-        technologiesUsed: formData.technologiesUsed,
-        logo: formData.logo,
-      };
+      let result;
+      if (this.entrepriseId != null) {
+        result = {
+          id: this.entrepriseId,
+          name: formData.name,
+          city: formData.city,
+          adresse: {
+            location: formData.adresse.location,
+            phoneNumber1: formData.adresse.phoneNumber1,
+            website: formData.adresse.website,
+            socials: socials.filter((social) => social.value), // Remove empty values
+          },
+          shortDescription: formData.shortDescription,
+          longDescription: formData.longDescription,
+          sectors: formData.sectors,
+          technologiesUsed: formData.technologiesUsed,
+          logo: formData.logo,
+        };
+      }
+      if (this.entrepriseId == null) {
+        result = {
+          name: formData.name,
+          city: formData.city,
+          adresse: {
+            location: formData.adresse.location,
+            phoneNumber1: formData.adresse.phoneNumber1,
+            website: formData.adresse.website,
+            socials: socials.filter((social) => social.value), // Remove empty values
+          },
+          shortDescription: formData.shortDescription,
+          longDescription: formData.longDescription,
+          sectors: formData.sectors,
+          technologiesUsed: formData.technologiesUsed,
+          logo: formData.logo,
+        };
+      }
 
       // Construct discordPayload object
       const discordPayload = {
