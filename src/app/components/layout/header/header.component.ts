@@ -7,6 +7,7 @@ import {
   bootstrapGithub,
   bootstrapDiscord,
   bootstrapWhatsapp,
+  bootstrapBuildingAdd,
 } from '@ng-icons/bootstrap-icons';
 
 @Component({
@@ -15,7 +16,12 @@ import {
   imports: [NgIcon, RouterLink, NgClass],
   templateUrl: './header.component.html',
   providers: [
-    provideIcons({ bootstrapGithub, bootstrapDiscord, bootstrapWhatsapp }),
+    provideIcons({
+      bootstrapGithub,
+      bootstrapDiscord,
+      bootstrapWhatsapp,
+      bootstrapBuildingAdd,
+    }),
   ],
 })
 export class HeaderComponent implements OnInit {
