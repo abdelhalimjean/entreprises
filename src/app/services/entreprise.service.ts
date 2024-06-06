@@ -8,8 +8,7 @@ import { IEntreprise } from '../models/entreprise.model';
 })
 export class EntrepriseService {
   private dataUrl = 'assets/data.json';
-  private discordWebhookUrl =
-    'https://discordapp.com/api/webhooks/1248007146331836586/OVpJUtJEJiAtgqpoXTq-Hun73ujrq1tK5QEHeukK65fDQUnI32OvFL_n27uSOjdk3ROF';
+  private discordWebhookUrl = 'WEBHOOK_URL';
 
   constructor(private http: HttpClient) {}
 
