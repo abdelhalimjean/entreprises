@@ -9,6 +9,7 @@ import {
   bootstrapWhatsapp,
   bootstrapBuildingAdd,
 } from '@ng-icons/bootstrap-icons';
+import { DialogService } from '../../../services/dialog.service';
 
 @Component({
   selector: 'app-header',
@@ -27,6 +28,12 @@ import {
 export class HeaderComponent implements OnInit {
   #platformId: Object = inject(PLATFORM_ID);
   showBlurredNavbar = false;
+  dialogService = inject(DialogService);
+
+  openDialog(): void {
+    console.log('-----clicked-------');
+    this.dialogService.showDialog();
+  }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.#platformId)) {

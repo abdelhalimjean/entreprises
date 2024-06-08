@@ -1,11 +1,17 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Inject,
+  PLATFORM_ID,
+  OnDestroy,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
@@ -16,6 +22,7 @@ import { EntrepriseService } from '../../services/entreprise.service';
 import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-entreprise-form',
@@ -33,7 +40,7 @@ import { MessageModule } from 'primeng/message';
   templateUrl: './entreprise-form.component.html',
   providers: [MessageService],
 })
-export class EntrepriseFormComponent implements OnInit {
+export class EntrepriseFormComponent implements OnInit, OnDestroy {
   companyForm: FormGroup;
   displayDialog: boolean = false;
   isBrowser: boolean = false;
@@ -45,8 +52,15 @@ export class EntrepriseFormComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private entrepriseService: EntrepriseService,
     private messageService: MessageService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    public dialogService: DialogService,
+    private router: Router
+  ) {
+    this.dialogService.dialogVisibility$.subscribe((visible) => {
+      console.log('Dialog visibility changed:', visible);
+      this.displayDialog = visible;
+    });
+  }
 
   ngOnInit() {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -207,6 +221,22 @@ export class EntrepriseFormComponent implements OnInit {
   }
 
   showDialog() {
-    this.displayDialog = true;
+    this.dialogService.showDialog;
+  }
+  ngOnDestroy() {
+    console.log('destroyed');
+    this.dialogService.hideDialog;
+  }
+
+  redirectToLastPath() {
+    console.log('dialog closed');
+    this.dialogService.hideDialog;
+    if (this.entrepriseId) {
+      // If entrepriseId is available, redirect to 'entreprises/:id'
+      this.router.navigate(['/entreprises', this.entrepriseId]);
+    } else {
+      // If no entrepriseId is available, navigate to the home page
+      this.router.navigate(['/']);
+    }
   }
 }

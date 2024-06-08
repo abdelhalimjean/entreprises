@@ -5,7 +5,15 @@
     [(visible)]="displayDialog"
     [modal]="true"
     class="rounded-lg bg-white shadow-lg"
+    (onHide)="redirectToLastPath()"
   >
+    <span>
+      <strong>Please note:</strong>
+      Before adding your entreprise data, ensure you have the necessary
+      permissions and rights to share this information. By submitting data, you
+      confirm that you have obtained all necessary permissions and agree to our
+      policies.
+    </span>
     <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
       <div class="p-fluid p-6">
         <div class="mb-4">
@@ -230,56 +238,4 @@
       </div>
     </form>
   </p-dialog>
-}
-@if (!entrepriseId) {
-  <div
-    class="mx-auto my-12 rounded-xl bg-white p-6 text-slate-900 shadow-lg md:w-2/3"
-  >
-    <div class="mb-4 text-3xl font-bold text-byte-500">Add Entreprise Data</div>
-    <div class="mb-6 text-base text-slate-700">
-      Whether you are a former employee, a current employee, or a company owner,
-      your contribution in providing real entreprise data is invaluable. By
-      adding your entreprise information, you help create a more comprehensive
-      repository for our community.
-    </div>
-    <div class="mb-6 text-base text-slate-700">
-      <strong>Please note:</strong>
-      Before adding your entreprise data, ensure you have the necessary
-      permissions and rights to share this information. By submitting data, you
-      confirm that you have obtained all necessary permissions and agree to our
-      policies.
-    </div>
-    <div class="text-center">
-      to add entreprise data please,
-      <button (click)="showDialog()" class="text-byte-500">
-        <strong>click here</strong>
-      </button>
-    </div>
-  </div>
-}
-@if (entrepriseId) {
-  <div
-    class="mx-auto my-12 rounded-xl bg-white p-6 text-slate-900 shadow-lg md:w-2/3"
-  >
-    <div class="mb-4 text-3xl font-bold text-byte-500">
-      Update Entreprise Data
-    </div>
-    <div class="mb-6 text-base text-slate-700">
-      You are currently updating the entreprise data. Please make sure that all
-      the information you provide is accurate and up-to-date.
-    </div>
-    <div class="mb-6 text-base text-slate-700">
-      <strong>Please note:</strong>
-      Before updating your entreprise data, ensure you have the necessary
-      permissions and rights to share this information. By submitting data, you
-      confirm that you have obtained all necessary permissions and agree to our
-      policies.
-    </div>
-    <div class="text-center">
-      To update entreprise data please,
-      <button (click)="showDialog()" class="text-byte-500">
-        <strong>click here</strong>
-      </button>
-    </div>
-  </div>
 }

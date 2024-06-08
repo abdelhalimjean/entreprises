@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
 import { EditableMarkdownComponent } from '../editable-markdown/editable-markdown.component';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-markdown',
@@ -19,7 +20,8 @@ export class MarkdownComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialogService: DialogService
   ) {}
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -37,6 +39,7 @@ export class MarkdownComponent implements OnInit {
     this.markdownContent = newContent;
   }
   updateCompany() {
+    this.dialogService.showDialog();
     if (this.companyId !== null) {
       this.router.navigate(['/entreprise-form', this.companyId]);
     }
