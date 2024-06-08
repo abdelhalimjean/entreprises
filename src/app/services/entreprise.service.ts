@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { IEntreprise } from '../models/entreprise.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EntrepriseService {
   private dataUrl = 'assets/data.json';
-  private discordWebhookUrl = 'WEBHOOK_URL';
+  private discordWebhookUrl = environment.webhookUrl;
 
   constructor(private http: HttpClient) {}
 
