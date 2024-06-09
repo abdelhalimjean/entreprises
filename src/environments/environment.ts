@@ -1,3 +1,3 @@
 export const environment = {
-  webhookUrl: process.env['WEBHOOK_URL'] || '',
+  webhookUrl: 'webookh_url',
 };
