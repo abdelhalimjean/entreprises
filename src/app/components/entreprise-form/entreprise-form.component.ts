@@ -23,6 +23,7 @@ import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { DialogService } from '../../services/dialog.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-entreprise-form',
@@ -54,10 +55,10 @@ export class EntrepriseFormComponent implements OnInit, OnDestroy {
     private messageService: MessageService,
     private route: ActivatedRoute,
     public dialogService: DialogService,
-    private router: Router
+    private router: Router,
+    private imageService: ImageService
   ) {
     this.dialogService.dialogVisibility$.subscribe((visible) => {
-      console.log('Dialog visibility changed:', visible);
       this.displayDialog = visible;
     });
   }
@@ -84,12 +85,13 @@ export class EntrepriseFormComponent implements OnInit, OnDestroy {
         logo: ['', Validators.required],
       });
 
-      // Check for id parameter
       this.route.paramMap.subscribe((params) => {
         const idParam = params.get('id');
         this.entrepriseId = idParam ? +idParam : null;
         if (this.entrepriseId) {
           this.loadEntrepriseData(this.entrepriseId);
+        } else {
+          this.dialogService.showDialog();
         }
       });
     }
@@ -134,82 +136,100 @@ export class EntrepriseFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     if (this.companyForm.valid) {
       const formData = this.companyForm.value;
+      const fileInput: HTMLInputElement = document.querySelector('#logo');
+      const file = fileInput.files[0];
 
-      // Construct socials array
-      const socials = [
-        { platform: 'Linkedin', value: formData.adresse.linkedin },
-        { platform: 'Facebook', value: formData.adresse.facebook },
-        { platform: 'WhatsApp', value: formData.adresse.whatsapp },
-        { platform: 'Youtube', value: formData.adresse.youtube },
-      ];
+      if (file) {
+        this.imageService.uploadFile(file).subscribe(
+          (url) => {
+            formData.logo = url;
 
-      // Construct result object
-      let result;
-      if (this.entrepriseId != null) {
-        result = {
-          id: this.entrepriseId,
-          name: formData.name,
-          city: formData.city,
-          adresse: {
-            location: formData.adresse.location,
-            phoneNumber1: formData.adresse.phoneNumber1,
-            website: formData.adresse.website,
-            socials: socials.filter((social) => social.value), // Remove empty values
+            // Construct socials array
+            const socials = [
+              { platform: 'Linkedin', value: formData.adresse.linkedin },
+              { platform: 'Facebook', value: formData.adresse.facebook },
+              { platform: 'WhatsApp', value: formData.adresse.whatsapp },
+              { platform: 'Youtube', value: formData.adresse.youtube },
+              { platform: 'Github', value: formData.adresse.github },
+            ];
+
+            // Construct result object
+            let result;
+            if (this.entrepriseId != null) {
+              result = {
+                id: this.entrepriseId,
+                name: formData.name,
+                city: formData.city,
+                adresse: {
+                  location: formData.adresse.location,
+                  phoneNumber1: formData.adresse.phoneNumber1,
+                  website: formData.adresse.website,
+                  socials: socials.filter((social) => social.value), // Remove empty values
+                },
+                shortDescription: formData.shortDescription,
+                longDescription: formData.longDescription,
+                sectors: formData.sectors,
+                technologiesUsed: formData.technologiesUsed,
+                logo: formData.logo,
+              };
+            } else {
+              result = {
+                name: formData.name,
+                city: formData.city,
+                adresse: {
+                  location: formData.adresse.location,
+                  phoneNumber1: formData.adresse.phoneNumber1,
+                  website: formData.adresse.website,
+                  socials: socials.filter((social) => social.value), // Remove empty values
+                },
+                shortDescription: formData.shortDescription,
+                longDescription: formData.longDescription,
+                sectors: formData.sectors,
+                technologiesUsed: formData.technologiesUsed,
+                logo: formData.logo,
+              };
+            }
+
+            // Construct discordPayload object
+            const discordPayload = {
+              content: JSON.stringify(result, null, 2), // Send the result as formatted JSON string
+            };
+
+            this.data = JSON.stringify(discordPayload);
+            this.entrepriseService.postDataToDiscord(this.data).subscribe(
+              (response) => {
+                console.log('Data posted to Discord successfully:', response);
+                // Display success message
+                this.messageService.add({
+                  severity: 'success',
+                  summary: 'Success',
+                  detail: 'Data posted to Discord successfully',
+                });
+              },
+              (error) => {
+                console.log(this.data);
+                console.error('Error posting data to Discord:', error);
+                // Display error message
+                this.messageService.add({
+                  severity: 'error',
+                  summary: 'Error',
+                  detail: 'Failed to post data to Discord',
+                });
+              }
+            );
+            this.displayDialog = false;
           },
-          shortDescription: formData.shortDescription,
-          longDescription: formData.longDescription,
-          sectors: formData.sectors,
-          technologiesUsed: formData.technologiesUsed,
-          logo: formData.logo,
-        };
+          (error: any) => {
+            console.error('Error uploading file:', error);
+            // Display error message
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Failed to upload file',
+            });
+          }
+        );
       }
-      if (this.entrepriseId == null) {
-        result = {
-          name: formData.name,
-          city: formData.city,
-          adresse: {
-            location: formData.adresse.location,
-            phoneNumber1: formData.adresse.phoneNumber1,
-            website: formData.adresse.website,
-            socials: socials.filter((social) => social.value), // Remove empty values
-          },
-          shortDescription: formData.shortDescription,
-          longDescription: formData.longDescription,
-          sectors: formData.sectors,
-          technologiesUsed: formData.technologiesUsed,
-          logo: formData.logo,
-        };
-      }
-
-      // Construct discordPayload object
-      const discordPayload = {
-        content: JSON.stringify(result, null, 2), // Send the result as formatted JSON string
-      };
-
-      console.log(discordPayload);
-      this.data = JSON.stringify(discordPayload);
-      this.entrepriseService.postDataToDiscord(this.data).subscribe(
-        (response) => {
-          console.log('Data posted to Discord successfully:', response);
-          // Display success message
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
-            detail: 'Data posted to Discord successfully',
-          });
-        },
-        (error) => {
-          console.log(this.data);
-          console.error('Error posting data to Discord:', error);
-          // Display error message
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Failed to post data to Discord',
-          });
-        }
-      );
-      this.displayDialog = false;
     } else {
       console.error('Form is invalid');
       // Display validation errors
@@ -221,21 +241,20 @@ export class EntrepriseFormComponent implements OnInit, OnDestroy {
   }
 
   showDialog() {
-    this.dialogService.showDialog;
+    this.dialogService.showDialog();
   }
+
   ngOnDestroy() {
     console.log('destroyed');
-    this.dialogService.hideDialog;
+    this.dialogService.hideDialog();
   }
 
   redirectToLastPath() {
     console.log('dialog closed');
-    this.dialogService.hideDialog;
+    this.dialogService.hideDialog();
     if (this.entrepriseId) {
-      // If entrepriseId is available, redirect to 'entreprises/:id'
       this.router.navigate(['/entreprises', this.entrepriseId]);
     } else {
-      // If no entrepriseId is available, navigate to the home page
       this.router.navigate(['/']);
     }
   }
