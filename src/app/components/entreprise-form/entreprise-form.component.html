@@ -1,0 +1,241 @@
+<p-messages></p-messages>
+@if (isBrowser) {
+  <p-dialog
+    header="Entreprise Data"
+    [(visible)]="displayDialog"
+    [modal]="true"
+    class="rounded-lg bg-white shadow-lg"
+    (onHide)="redirectToLastPath()"
+  >
+    <span>
+      <strong>Please note:</strong>
+      Before adding your entreprise data, ensure you have the necessary
+      permissions and rights to share this information. By submitting data, you
+      confirm that you have obtained all necessary permissions and agree to our
+      policies.
+    </span>
+    <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+      <div class="p-fluid p-6">
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-gray-700">
+            Nom de l'Entreprise
+          </label>
+          <input
+            id="name"
+            pInputText
+            formControlName="name"
+            type="text"
+            class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="city" class="block text-sm font-medium text-gray-700">
+            Ville
+          </label>
+          <p-dropdown
+            id="city"
+            formControlName="city"
+            [options]="[
+              { label: 'Nouakchott', value: 'Nouakchott' },
+              { label: 'Nouadhibou', value: 'Nouadhibou' }
+            ]"
+            class="p-dropdown mt-1 block w-full shadow-md outline-byte-200"
+          ></p-dropdown>
+        </div>
+
+        <div formGroupName="adresse">
+          <div class="mb-4">
+            <label
+              for="location"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Location
+            </label>
+            <input
+              id="location"
+              pInputText
+              formControlName="location"
+              type="text"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="phoneNumber1"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Numéro de Téléphone
+            </label>
+            <input
+              id="phoneNumber1"
+              pInputText
+              formControlName="phoneNumber1"
+              type="tel"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="website"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Site Web
+            </label>
+            <input
+              id="website"
+              pInputText
+              formControlName="website"
+              type="url"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="youtube"
+              class="block text-sm font-medium text-gray-700"
+            >
+              YouTube
+            </label>
+            <input
+              id="youtube"
+              pInputText
+              formControlName="youtube"
+              type="url"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="linkedin"
+              class="block text-sm font-medium text-gray-700"
+            >
+              LinkedIn
+            </label>
+            <input
+              id="linkedin"
+              pInputText
+              formControlName="linkedin"
+              type="url"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="github" class="block text-sm font-medium text-gray-700">
+              GitHub
+            </label>
+            <input
+              id="github"
+              pInputText
+              formControlName="github"
+              type="url"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="facebook"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Facebook
+            </label>
+            <input
+              id="facebook"
+              pInputText
+              formControlName="facebook"
+              type="url"
+              class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+            />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label
+            for="shortDescription"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Description Brève de l'Entreprise
+          </label>
+          <textarea
+            id="shortDescription"
+            pInputTextarea
+            formControlName="shortDescription"
+            class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+          ></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label
+            for="longDescription"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Description Longue de l'Entreprise
+          </label>
+          <textarea
+            id="longDescription"
+            pInputTextarea
+            formControlName="longDescription"
+            class="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-md outline-byte-200"
+          ></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="sectors" class="block text-sm font-medium text-gray-700">
+            Secteurs
+          </label>
+          <p-chips
+            id="sectors"
+            formControlName="sectors"
+            separator=","
+            max="10"
+            class="mt-1 block w-full shadow-md outline-byte-200"
+          ></p-chips>
+        </div>
+
+        <div class="mb-4">
+          <label
+            for="technologiesUsed"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Technologies Utilisées
+          </label>
+          <p-chips
+            id="technologiesUsed"
+            formControlName="technologiesUsed"
+            separator=","
+            max="15"
+            class="mt-1 block w-full shadow-md outline-byte-200"
+          ></p-chips>
+        </div>
+
+        <div class="mb-4">
+          <label for="logo" class="block text-sm font-medium text-gray-700">
+            Logo
+          </label>
+          <input
+            id="logo"
+            pInputText
+            formControlName="logo"
+            type="file"
+            class="mt-1 block w-full rounded-md border-gray-700 p-2 shadow-md outline-byte-200"
+          />
+        </div>
+
+        <div class="mt-6 flex items-center justify-end">
+          <button
+            pButton
+            type="submit"
+            label="Send Data"
+            class="inline-flex justify-center rounded-md border border-transparent bg-byte-500 px-4 py-2 text-sm font-medium text-white shadow-sm outline-none hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </p-dialog>
+}

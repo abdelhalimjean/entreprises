@@ -1,4 +1,12 @@
 <app-editable-markdown
-    [markdownText]="markdownContent"
-    (markdownChanged)="onMarkdownChange($event)"
+  [markdownText]="markdownContent"
+  (markdownChanged)="onMarkdownChange($event)"
 ></app-editable-markdown>
+<div class="mt-4 text-center">
+  <button
+    (click)="updateCompany()"
+    class="transform rounded bg-byte-100 px-4 py-2 font-bold text-byte-900 shadow-md transition duration-300 ease-in-out hover:scale-105 hover:bg-byte-700 hover:text-white hover:shadow-lg"
+  >
+    Update Company Details
+  </button>
+</div>
