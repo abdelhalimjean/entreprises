@@ -192,7 +192,7 @@ export class EntrepriseFormComponent implements OnInit, OnDestroy {
 
             // Construct discordPayload object
             const discordPayload = {
-              content: JSON.stringify(result, null, 2), // Send the result as formatted JSON string
+              content: '```json\n' + JSON.stringify(result, null, 2) + '\n```', // Send the result as formatted JSON string
             };
 
             this.data = JSON.stringify(discordPayload);
